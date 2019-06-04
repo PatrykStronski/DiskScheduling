@@ -26,7 +26,7 @@ class Disk{
 	}
 
 	searchUpBS(task,rep) {
-		for(rep.iterations = 0; this.head!==task.cluster && this.size>this.head; this.head++){ 
+		for(; this.head!==task.cluster && this.size>this.head; this.head++){ 
 			this.timer++; 
 			rep.iterations++; 
 		}
@@ -38,7 +38,7 @@ class Disk{
 	}
 
 	searchDownBS(task,rep) {
-		for(rep.iterations=0; this.head!==task.cluster && this.size>this.head; this.head--){ 
+		for(; this.head!==task.cluster && this.size>this.head; this.head--){ 
 			this.timer++;
 			rep.iterations++; 
 		}
@@ -98,6 +98,7 @@ class Report{
 		this.endTime=0;
 		this.id = id;
 		this.startTime=start;
+		this.iterations=0;
 	}
 	
 	exportReport(){
